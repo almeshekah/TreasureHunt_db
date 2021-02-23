@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "meshekah",
-    "password": null,
-    "database": "treasureHunt_db",
+    "username": "postgres",
+    "password": "123456",
+    "database": "treasurehunt_db",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false

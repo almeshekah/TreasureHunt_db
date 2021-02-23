@@ -1,34 +1,45 @@
 module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define("User", {
+  const User = sequelize.define(
+    "User",
+    {
       username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: {
+        validate: {
+          unique: {
             args: true,
-            msg: "Username already exists"
+            msg: "Username already exists",
+          },
         },
-        allowNull: false,
+        // allowNull: false,
       },
 
       password: {
         type: DataTypes.STRING,
-        allowNull: false,
+        validate: {
+          allowNull: false,
+        },
       },
-      
       email: {
         type: DataTypes.STRING,
         allowNull: false,
-        isEmail: true,
+        validate: {
+          isEmail: true,
+        },
       },
       firstName: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
+        // validate: {
+
+        // }
       },
       lastName: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
       },
-
-    },{timestamps:false},);
-    return User;
-  };
+    },
+    { timestamps: false }
+  );
+  return User;
+};
